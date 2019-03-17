@@ -15,5 +15,6 @@ RUN apk add --no-cache --virtual .build-deps \
         musl-dev \
         libffi-dev && \
         chmod +x /acme.sh && \
-        INSTALLONLINE=1 sh /acme.sh && \
+        mkdir /acme-data && \
+        ./acme.sh --install --config-home /acme-data && \
         apk del .build-deps
