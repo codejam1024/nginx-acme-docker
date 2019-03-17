@@ -1,7 +1,5 @@
 FROM nginx:alpine
 
-ADD https://raw.githubusercontent.com/Neilpang/acme.sh/master/acme.sh /acme.sh
-
 RUN apk add --no-cache --virtual .acme-deps \
         libffi \
         libssl1.1 \
@@ -13,8 +11,11 @@ RUN apk add --no-cache --virtual .build-deps \
         linux-headers \
         openssl-dev \
         musl-dev \
-        libffi-dev && \
-        chmod +x /acme.sh && \
-        mkdir /acme-data && \
-        ./acme.sh --install --config-home /acme-data && \
+        libffi-dev
         apk del .build-deps
+
+ADD https://raw.githubusercontent.com/Neilpang/acme.sh/master/acme.sh /acme.sh
+
+RUN chmod +x /acme.sh && \
+    mkdir /acme-data && \
+    ./acme.sh --install --config-home /acme-data && \
