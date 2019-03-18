@@ -18,4 +18,4 @@ ADD https://raw.githubusercontent.com/Neilpang/acme.sh/master/acme.sh /acme.sh
 
 RUN chmod +x /acme.sh && \
     mkdir /acme-data && \
-    ./acme.sh --install --config-home /acme-data && \
+    ./acme.sh --install --config-home /acme-data
