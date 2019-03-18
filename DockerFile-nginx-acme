@@ -11,7 +11,7 @@ RUN apk add --no-cache --virtual .build-deps \
         linux-headers \
         openssl-dev \
         musl-dev \
-        libffi-dev
+        libffi-dev && \
         apk del .build-deps
 
 ADD https://raw.githubusercontent.com/Neilpang/acme.sh/master/acme.sh /acme.sh
