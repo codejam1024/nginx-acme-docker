@@ -2,6 +2,7 @@ FROM nginx:alpine
 
 RUN apk update -f \
   && apk --no-cache add -f \
+  bash \
   openssl \
   coreutils \
   bind-tools \
